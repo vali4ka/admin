@@ -1,0 +1,64 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+admin_joro/add_user.php
+admin_joro/comments.php
+admin_joro/css/styles.css
+admin_joro/delete_user.php
+admin_joro/edit_user.php
+admin_joro/functions/common.php
+admin_joro/functions/db.php
+admin_joro/functions/news.php
+admin_joro/functions/validate.php
+admin_joro/include/bootstrap.php
+admin_joro/include/config.php
+admin_joro/include/footer.php
+admin_joro/include/header.php
+admin_joro/index.php
+admin_joro/login.php
+admin_joro/logout.php
+admin_joro/news.php
+admin_joro/news_add.php
+admin_joro/news_edit.php
+admin_joro/storage/4171Funny-Cat-Pictures-cats-935656_500_375.jpg
+admin_joro/storage/4495Funny-Cat-Pictures-cats-935656_500_375.jpg
+admin_joro/storage/654funny-cat-pictures-part-4-001.jpg
+admin_joro/storage/846funny-cat-pictures-part-4-001.jpg
+admin_joro/todo.txt
+admin_joro/users.php
+admin_joro/users.sql
+admin_joro/welcome.php

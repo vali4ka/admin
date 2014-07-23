@@ -1,0 +1,69 @@
+<?php
+require_once('include/bootstrap.php');
+require_once('include/header.php');
+
+
+//$result = images_count();
+
+$res = new Buys($db_connection);
+$result = $res -> getAll();
+
+if (isset($_GET['action'])) {
+
+	switch ($_GET['action']) {
+		case 'delete':
+			$res->delete($_GET['id']);
+			redirect('products.php?action=success');
+		break;
+		case 'success':
+			$deleteMsg = 'Изтриването успешно';
+		break;
+		default:
+			redirect('products.php');
+			break;
+	}
+}
+
+?>
+
+<div class="content">
+
+    <table>
+        <tr>
+            <th>#</th>
+            <th>купувач</th>
+			<th>Дата/час</th>
+			<th>email</th>
+			<th>телефон</th>
+			<th>продукт</th>
+			<th>цена</th>
+			<th>дайствие</th>
+        </tr>
+        <?php foreach($result as $key => $value):?>
+            <tr>
+                <td><?php echo $value['id'];?></td>
+                <td><?php echo $value['name'];?></td>
+				<td><?php echo $value['date_add'];?></td>
+				<td><?php echo $value['email'];?></td>
+				<td><?php echo $value['phone'];?></td>
+				<td><?php echo $value['product_title'];?></td>
+				<td><?php echo $value['product_price'];?></td>
+
+
+                <td>
+                    <a href="buy_form.php?id=<?php echo $value['id'];?>">Одобри</a>
+                  
+                    <a href="buy_form.php?action=delete&id=<?php echo $value['id'];?>">Изтрий</a>
+                
+                </td>
+            </tr>
+        <?php endforeach; ?>
+		<?php if (isset($deleteMsg)){ ?>
+		<th colspan = "5"><?=$deleteMsg;?></th>
+		<?php } ?>
+    </table>
+
+</div>
+
+<?php
+require_once('include/footer.php');
