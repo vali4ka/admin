@@ -13,13 +13,13 @@ if (isset($_GET['action'])) {
 	switch ($_GET['action']) {
 		case 'delete':
 			$res->delete($_GET['id']);
-			redirect('products.php?action=success');
+			redirect('buy_form.php?action=success');
 		break;
 		case 'success':
 			$deleteMsg = 'Изтриването успешно';
 		break;
 		default:
-			redirect('products.php');
+			redirect('buy_form.php');
 			break;
 	}
 }
