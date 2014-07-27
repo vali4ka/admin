@@ -48,5 +48,20 @@ class Comments implements ICRUD_comments {
 	
 	}
 
+		public function getAll() {
+
+		$sql = 'SELECT comments.id, comments.comments, comments.user, comments.date_add, news.title
+				FROM comments
+				INNER JOIN news ON news.id = comments.news_id';
+		
+		$res = mysqli_query($this->db, $sql);
+		$result = array();
+		while ( $row = mysqli_fetch_assoc($res) ) {
+			$result[] = $row;
+		}
+
+		return $result;
+
+	}
 }
 ?>

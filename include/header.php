@@ -15,6 +15,7 @@
         <a href="news.php">Новини</a>
 		<a href="pages.php">Страници</a>
 		<a href="products.php">Продукти</a>
+		<a href="blog.php">Блог</a>
 		<a href="contact_form.php">Контактна форма</a>
 		<a href="buy_form.php">Купуване на продукт</a>
         <a href="logout.php">Изход</a>

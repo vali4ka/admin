@@ -31,7 +31,7 @@ if(isset($_GET['action'])){
 	
 }
 
-
+$flag = false;
 if($_SERVER ['REQUEST_METHOD'] == 'POST'){
 	
 		if ($_FILES['image']['tmp_name'] != '') {//tmp_name 
@@ -49,6 +49,15 @@ if($_SERVER ['REQUEST_METHOD'] == 'POST'){
 			$colors -> add($color);
 		}else{
 			echo 'Няма избран файл!';
+		}
+		
+		foreach ($result as $key => $value) { 
+		if($_POST['promo'] == 'promo' && $_POST['image'] = $value['id']){
+			echo	"<img id='img' src='pict/".$value['images']."'>";
+			echo 'promocionalen product';
+			$flag = true;
+			exit;
+		}
 		}
 		
 
@@ -77,8 +86,8 @@ require_once('include/header.php');
 			<?php if($result){ ?>
 			 <?php foreach ($result as $key => $value) { ?>
 			<td>
-		
-			<img id="img" src="pict/<?php echo $value['images']?>">
+			
+			<img id="img" src="pict/<?php echo $value['images'];?>">
 			<br>
 			<?php echo $value['name']?>
 			<?php echo $value['colors']?>
@@ -108,7 +117,7 @@ require_once('include/header.php');
 		
 		<label>
 			Промоционален продукт:
-			<input type="radio" name="promo" value="">
+			<input type="radio" name="promo" value="promo">
 		</label>
 		<br>
 		
