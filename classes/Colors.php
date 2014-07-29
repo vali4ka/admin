@@ -10,11 +10,12 @@ class Colors implements ICRUD_IMG{
 	public function add(IItem $item){
 		
 		$sql = '
-			INSERT INTO colors (products_id, colors, images)
+			INSERT INTO colors (products_id, colors, images, promo)
 			VALUES (
 				"'.$item -> products_id.'",
 				"'.$item -> colors.'",
-				"'.$item -> images.'"
+				"'.$item -> images.'",
+				"'.$item -> promo.'"
 			)';
 			
 		mysqli_query($this -> db, $sql);
@@ -47,7 +48,7 @@ class Colors implements ICRUD_IMG{
 		public function get_images($id){
 		
 		$sql = '
-			SELECT colors.images, colors.colors, products.name, colors.id
+			SELECT colors.images, colors.colors, products.name, colors.id, colors.promo
 			FROM products
 			INNER JOIN colors ON products.id = colors.products_id 
 			WHERE products.id ='.$id;

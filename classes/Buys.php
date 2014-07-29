@@ -9,14 +9,10 @@ class Buys implements ICRUD{
 	
 	public function add(IItem $item) {
 		$sql = '
-			INSERT INTO buy_form (name, date_add, email, phone, product_title, product_price, is_approved) 
+			INSERT INTO buy_form (is_approved) 
 			VALUES (
-				"'.$item->name.'",
-				"'.$item->date_add.'",
-				"'.$item->email.'",
-				"'.$item->phone.'",
-				"'.$item->product_title.'",
-				"'.$item->product_price.'"
+
+				"'.$item->is_approved.'"
 				
 			)
 		';

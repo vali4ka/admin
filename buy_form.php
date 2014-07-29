@@ -24,6 +24,15 @@ if (isset($_GET['action'])) {
 	}
 }
 
+
+if($_SERVER ['REQUEST_METHOD'] == 'POST'){
+	
+	$add = new Buy();
+	$add->is_approved = $_GET['id'];
+	$res->add($add);
+	
+}
+
 ?>
 
 <div class="content">
@@ -49,13 +58,14 @@ if (isset($_GET['action'])) {
 				<td><?php echo $value['product_title'];?></td>
 				<td><?php echo $value['product_price'];?></td>
 
-
+				<form action="" method="post">
                 <td>
-                    <a href="buy_form.php?id=<?php echo $value['id'];?>">Одобри</a>
+                    <button type="submit" id="<?php echo $value['id'];?>">Одобри</button>
                   
                     <a href="buy_form.php?action=delete&id=<?php echo $value['id'];?>">Изтрий</a>
                 
                 </td>
+				</form>
             </tr>
         <?php endforeach; ?>
 		<?php if (isset($deleteMsg)){ ?>

@@ -31,7 +31,7 @@ if(isset($_GET['action'])){
 	
 }
 
-$flag = false;
+
 if($_SERVER ['REQUEST_METHOD'] == 'POST'){
 	
 		if ($_FILES['image']['tmp_name'] != '') {//tmp_name 
@@ -41,16 +41,29 @@ if($_SERVER ['REQUEST_METHOD'] == 'POST'){
 			$filename = '';
 		}
 		
+		
+		if($_POST['promo'] != 'promo'){
+			$promo = 0;
+		}else{
+			$promo = 1;
+		}
+		
+		
 		if( $filename != ''){
 			$color = new Color();
-			$color -> products_id = $_GET['id'];
-			$color -> colors = $_POST['colors'];
-			$color -> images = $filename;
+			$color->products_id = $_GET['id'];
+			$color->colors = $_POST['colors'];
+			$color->images = $filename;
+			$color->promo = $promo;
 			$colors -> add($color);
 		}else{
 			echo 'Няма избран файл!';
 		}
+	
 		
+	
+	
+	/*
 		foreach ($result as $key => $value) { 
 		if($_POST['promo'] == 'promo' && $_POST['image'] = $value['id']){
 			echo	"<img id='img' src='pict/".$value['images']."'>";
@@ -59,7 +72,7 @@ if($_SERVER ['REQUEST_METHOD'] == 'POST'){
 			exit;
 		}
 		}
-		
+*/		
 
 	/*	
 		db_insert('products_images', array(
@@ -83,8 +96,9 @@ require_once('include/header.php');
 		<div>
 			<table border=1>
 			<tr>
-			<?php if($result){ ?>
+			
 			 <?php foreach ($result as $key => $value) { ?>
+			 
 			<td>
 			
 			<img id="img" src="pict/<?php echo $value['images'];?>">
@@ -93,6 +107,8 @@ require_once('include/header.php');
 			<?php echo $value['colors']?>
 			<br>
 			<a id="iztrii" href="add_images.php?action=delete&id=<?=$value['id']?>&products_id=<?=$_GET['id']?>">Изтрий</a>
+			<?php if($value['promo'] == 1){ ?>
+			<?php echo "<div class='promo'>промоционален продукт</div>"; ?>
 			</td>		
 		
 			<?php } ?>

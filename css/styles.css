@@ -18,6 +18,7 @@ table tr td{ border: 1px solid #c1c1c1; padding: 10px 0; text-align: center;}
 
 div.success{ padding: 10px; border: 1px solid green; background: lightgreen; color: #000;}
 div.error{ padding: 10px; border: 1px solid red; background: indianred; color: #000;}
+div.promo{padding: 10px; color: red;}
 
 div.welcome {text-align: center; padding: 30px; font-size: 20px;}
 
